@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #59027b;
+            margin: 0;
+        }
+
+        .container {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(62,2,73,0.627); 
+            padding: 15px;
+            border-radius: 15px;
+            width: 35%;
+            color: white;
+            text-align: center;
+            margin: 50px auto;
+        }
+
+
+        fieldset {
+            border: 3px solid #9e20d0;
+        }
+
+        legend {
+            background-color:#9e20d0;
+            border: 1px solid;
+            padding: 7px;
+            text-align: center;
+            background-color:#9e20d0;
+            border-radius: 5px;
+        }
+
+        .container-input {
+            position: relative;
+        }
+
+        input {
+            background: none;
+            border: none;
+            border: 2px solid #9e20d0;
+            border-radius: 5px;
+            padding: 4px;
+            color: white;
+            font-size: 15px;
+            width: 90%;
+            letter-spacing: 2px;
+        }
+
+        #focus {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        input:focus ~ #focus,
+        input:valid ~ #focus {
+            top: -40px;
+            font-size: 10px;
+            color: #9e20d0;
+        }
+
+        button {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+            width: 100%;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+        }
+
+        #resultado {
+            color: white;
+        }
+
+        #resultado p {
+            display: inline-block; 
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="img/disney.png" alt="logo custom" width="120">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="site.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <div class="container">
+
+        <h1>Calculadora de Vendas</h1>
+
+        <div>
+            <h3>Produto 1</h3>
+            <label for="p1n">Nome do Produto:</label>
+            <input type="text" id="p1n">
+            <br>
+            <label for="p1v">Valor por unidade:</label>
+            <input type="number" id="p1v">
+            <label for="p1q">Quantidade Vendida:</label>
+            <input type="number" id="p1q">
+        </div>
+        <div>
+            <h3>Produto 2</h3>
+            <label for="p2n">Nome do Produto:</label>
+            <input type="text" id="p2n">
+            <br>
+            <label for="p2v">Valor por unidade:</label>
+            <input type="number" id="p2v">
+            <label for="p2q">Quantidade Vendida:</label>
+            <input type="number" id="p2q">
+        </div>
+        <div>
+            <h3>Produto 3</h3>
+            <label for="p3n">Nome do Produto:</label>
+            <input type="text" id="p3n">
+            <br>
+            <label for="p3v">Valor por unidade:</label>
+            <input type="number" id="p3v">
+            <label for="p3q">Quantidade Vendida:</label>
+            <input type="number" id="p3q">
+        </div>
+        <button onclick="calcularTotal()"> Valor Total</button>
+        <p>Valor Total da Venda:</p>
+        <div id="total"></div>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            const p1v = parseFloat(document.getElementById("p1v").value);
+            const p1q = parseInt(document.getElementById("p1q").value);
+
+            const p2v = parseFloat(document.getElementById("p2v").value);
+            const p2q = parseInt(document.getElementById("p2q").value);
+
+            const p3v = parseFloat(document.getElementById("p3v").value);
+            const p3q = parseInt(document.getElementById("p3q").value);
+
+            const total = (p1v * p1q) + (p2v * p2q) + (p3v * p3q);
+
+            const totalElement = document.getElementById("total");
+            totalElement.textContent = `Valor Total da Venda: R$ ${total.toFixed(2)}`;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <title>Calculadora de Gastos com Combustível</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #59027b;
+            margin: 0 /* Adicionado margem acima do body */
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(62, 2, 73, 0.627);
+            padding: 15px;
+            border-radius: 15px;
+            width: 40%;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        fieldset {
+            border: 3px solid #9e20d0;
+        }
+
+        legend {
+            background-color: #9e20d0;
+            border: 1px solid;
+            padding: 7px;
+            text-align: center;
+            background-color: #9e20d0;
+            border-radius: 5px;
+        }
+
+        .container-input {
+            position: relative;
+        }
+
+        input {
+            background: none;
+            border: none;
+            border: 2px solid #9e20d0;
+            border-radius: 5px;
+            padding: 4px;
+            color: white;
+            font-size: 15px;
+            width: 90%;
+            letter-spacing: 2px;
+        }
+
+        #focus {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        input:focus ~ #focus,
+        input:valid ~ #focus {
+            top: -40px;
+            font-size: 10px;
+            color: #9e20d0;
+        }
+
+        button {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+            width: 100%;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+        }
+
+        #resultado {
+            color: white;
+        }
+
+        #resultado p {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="img/disney.png" alt="logo custom" width="120">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="site.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+
+<!-- fim do menu-->
+
+
+
+    <div class="container">
+        <h1>Cálculo de Combustível</h1>
+    <form onsubmit="event.preventDefault();calculargasolina();">
+    <p>Digite a quilometragem do percurso:</p>
+    <input type="text" id="km">
+    <br>
+    <p>Digite o valor da gasolina (por litro):</p>
+    <input type="text" id="combustivel">
+    <br><br>
+    <button onclick="calcularGasolina()"> Calcular Valor do Combustível</button>
+    <br>
+</form>
+    <div id="valorcombustivel"></div>
+    <script>
+function calculargasolina(){
+const km=parseFloat(document.getElementById("km").value);
+const combustivel=parseFloat(document.getElementById("combustivel").value);
+const valortotal = (combustivel/8)*km;
+const valorcombustivel=document.getElementById("valorcombustivel");
+valorcombustivel.textContent = "O valor total de combustível é " +valortotal.toFixed(2);
+}
+
+    </script>
+</div>
+</body>
+</html>

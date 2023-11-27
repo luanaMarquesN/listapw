@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #59027b;
+            margin: 0;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color:  rgba(62, 2, 73, 0.627);
+            padding: 50px;
+            border-radius: 50px;
+            width: 40%;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row; /* Alterei para row */
+            flex-wrap: wrap;
+        }
+
+    
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        input {
+            background: none;
+            border: 2px solid #9e20d0;
+            border-radius: 5px;
+            padding: 6px;
+            color: white;
+            font-size: 15px;
+            width: 100%;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #focus {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        input:focus~#focus,
+        input:valid~#focus {
+            top: -40px;
+            font-size: 10px;
+            color: #9e20d0;
+        }
+
+        button {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+            width: 80%;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+        }
+
+        #resultado {
+            color: white;
+        }
+
+        #resultado p {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- menu bootstrap-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="img/disney.png" alt="logo custom" width="120">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="site.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+<!-- fim do menu-->
+    <div class="container">
+    
+
+
+        <form>
+            <h1>Calcular o assentamento de piso por M²</h1>
+            <label for="comp">Comprimento em metros:</label>
+            <input type="number" id="comp">
+            <label for="larg">Largura em metros:</label>
+            <input type="number" id="larg">
+            <button type="button" onclick="Custo()">Calcular Preço</button>
+        </form>
+        
+        <p>Custo total será de:</p>
+        <div id="preço"></div>
+        
+        <script>
+            function Custo() {
+                const comp = parseFloat(document.getElementById("comp").value);
+                const larg = parseFloat(document.getElementById("larg").value);
+                const MetroQuadrado = 36.00;
+        
+                const area = comp * larg;
+                const Total = area * MetroQuadrado;
+        
+                const PisoElement = document.getElementById("preço");
+                PisoElement.textContent = `Custo total de assentamento de piso: R$ ${Total.toFixed(2)}`;
+            }
+        </script>
+        </body>
+        

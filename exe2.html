@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #59027b;
+            margin: 0;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(62, 2, 73, 0.627);
+            padding: 15px;
+            border-radius: 15px;
+            width: 20%;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; 
+        }
+
+    
+
+
+        .container-input {
+            position: relative;
+        }
+
+        input {
+            background: none;
+            border: none;
+            border: 2px solid #9e20d0;
+            border-radius: 5px;
+            padding: 4px;
+            color: white;
+            font-size: 15px;
+            width: 90%;
+            letter-spacing: 2px;
+        }
+
+       
+
+        input:focus ~ #focus,
+        input:valid ~ #focus {
+            top: -40px;
+            font-size: 10px;
+            color: #9e20d0;
+        }
+
+        button {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+            width: 100%;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-image: linear-gradient(to right, #230124, #9e20d0);
+        }
+
+
+      
+ 
+       </style>
+
+<!-- menu bootstrap-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="img/disney.png" alt="logo custom" width="120">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="site.html">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<!-- fim do menu-->
+
+
+
+
+       <div class="container">
+    <h1>Converter Temperatura</h1>
+</head>
+<body>
+    <p>Digite uma temperatura em graus Celsius:</p>
+    <input type="number" id="celsius">
+
+    <button onclick="convertercelsius()">Converter para Fahrenheit</button>
+    <p> Digite uma temperatura em graus Fahrenheit:</p>
+    <input type="number" id="fahrenheit">
+    <button onclick="converterfahrenheit()"> Converter para Celsius</button>
+    <br><br>
+    <div id="ConverterTemperatura"> Temperatura Convertida:</div>
+
+    <script>
+function convertercelsius(){
+    const celsius =parseFloat(document.getElementById("celsius").value);
+    const Fahrenheit = (celsius * 1.8)+32;
+const ConverterTemperatura =document.getElementById("ConverterTemperatura");
+ConverterTemperatura.textContent = celsius + "°C é igual " +Fahrenheit.toFixed(2)+"°F";
+}
+      
+    function converterfahrenheit(){
+        const Fahrenheit= parseFloat(document.getElementById("fahrenheit").value);
+        const celsius=parseFloat =(Fahrenheit-32)/1.8;
+        const ConverterTemperatura =document.getElementById("ConverterTemperatura");
+ConverterTemperatura.textContent = Fahrenheit + "°F é igual "+celsius.toFixed(2)+"°C";     
+        
+    }
+    </script>
+    </div>
+</html>
+</body>
